@@ -1,8 +1,11 @@
 import SearchInput from './SearchInput'
 import Conversation from "./Conversation"
 import {BiLogOut} from 'react-icons/bi'
+import useSignout from '../hooks/useSignout'
 
 export default function Sidebar() {
+  const signout = useSignout()
+
   return <div className='flex flex-col border-r border-slate-500 p-4'>
     {/* Search input */}
     <SearchInput />
@@ -37,7 +40,8 @@ export default function Sidebar() {
 
     {/* Signout Button */}
     <div className='mt-auto'>
-      <BiLogOut className='w-6 h-6 text-white cursor-pointer' />
+      <BiLogOut className='w-6 h-6 text-white cursor-pointer'
+      onClick={signout} />
     </div>
   </div>
 }
