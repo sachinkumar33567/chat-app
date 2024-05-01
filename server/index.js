@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/messages', messageRoutes)
-app.use('/api/user', userRoutes)
+app.use('/api/users', userRoutes)
 
 app.listen(3000, (req, res) => {
     connectToMongoDB()
