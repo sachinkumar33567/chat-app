@@ -5,12 +5,14 @@ import useConversation from "../zustand/useConversation";
 import { useEffect, useRef } from "react";
 import MessageInput from "./MessageInput";
 import useGetMessages from "../hooks/useGetMessages";
+import useListenMessages from "../hooks/useListenMessages";
 
 export default function MessageContainer() {
   const { authUser } = useAuthContext();
   const { selectedConversation, setSelectedConversation } = useConversation();
   const {loading, messages} = useGetMessages()
   const lastMessageRef = useRef()
+  useListenMessages()
 
   useEffect(() => {
     // cleanup function (unmounts)

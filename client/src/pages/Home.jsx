@@ -11,7 +11,7 @@ export default function Home() {
       className="w-12 rounded-full" />
       <div className="text-gray-300 font-semibold">
         <p className="text-md">{authUser.fullName}</p>
-        <p className="text-sm">{authUser.username}</p>
+        <p className="text-sm">@{authUser.username}</p>
       </div>
     </div>
 

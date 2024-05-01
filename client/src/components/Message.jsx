@@ -3,10 +3,11 @@ import { useAuthContext } from "../context/AuthContext";
 export default function Message({message}) {
   const {authUser} = useAuthContext()
   const fromMe = authUser._id === message.senderId
+  const shouldShake = message.shouldShake
   
   return <div className={`chat ${fromMe? 'chat-end' : 'chat-start'}`}>
     <div>
-        <p className={`bg-${fromMe? 'sky-500': 'slate-800'} shake}
+        <p className={`bg-${fromMe? 'sky-500': 'slate-800'} ${shouldShake && 'shake'}
         text-gray-200 rounded-md px-3 py-1`}>{message.message}</p>
         <p className={`text-xs text-gray-200 ${fromMe?'text-right':'text-left'}
         ${fromMe?'pr-1': 'pl-1'}`}>{extractTime(message.createdAt)}</p>
